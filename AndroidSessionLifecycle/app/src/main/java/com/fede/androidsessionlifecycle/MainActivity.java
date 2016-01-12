@@ -21,47 +21,15 @@ import com.leanplum.annotations.Parser;
 import com.leanplum.annotations.Variable;
 import com.leanplum.callbacks.VariablesChangedCallback;
 
-public class MainActivity extends Activity {
-
-    // Defining variables
-    static Var<String> welcomeLabel = Var.define("welcomeLabel", "Welcome!");
-
-    // All variables must be defined before calling Leanplum.start.
-    // If using annotations, and Activity is not extending a Leanplum Activity,
-    // Parser class needs to be used to correctly sync the values on Dashboard
-    @Variable
-    public static String welcomeMessage = "Welcome to Leanplum!";
+public class MainActivity extends LeanplumActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Parser class to get the annotation defined variables
-
-        Parser.parseVariablesForClasses(MainActivity.class);
-
-
-        // We've inserted your FedeApp3 API keys here for you :)
-        if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("", "");
-        } else {
-            Leanplum.setAppIdForProductionMode("", "");
-        }
-
-
-        // It's important to use the variables changed callback if the value is needed
-        // around the time the app starts, so that we're guaranteed to have the latest value.
-        Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
-            @Override
-            public void variablesChanged() {
-                Log.i("#### Test", welcomeMessage);
-                Log.i("#### Test", welcomeLabel.value());
-            }
-        });
-
-
-        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
+        // Leanplum is started in the MainActivity class
+        // Application Lifecycle, variables definition and Leanplum App keys are all specified in the ApplicationClass
 
         Leanplum.start(this);
     }
