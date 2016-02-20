@@ -65,11 +65,4 @@ public class TestApp extends LeanplumApplication {
 
 
     }
-//    @Override
-//    public Resources getResources() {
-//        if (this.leanplumResources == null) {
-//            this.leanplumResources = new LeanplumResources(super.getResources());
-//        }
-//        return this.leanplumResources;
-//    }
 }
