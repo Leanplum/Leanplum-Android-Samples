@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
+import com.leanplum.LeanplumApplication;
 import com.leanplum.LeanplumPushNotificationCustomizer;
 import com.leanplum.LeanplumPushService;
 import com.leanplum.LeanplumResources;
@@ -54,6 +55,9 @@ public class ApplicationClass extends Application {
                 Log.i("Leanplum", "####" + welcomeMessage);
             }
         });
+
+        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
+
     }
 
     // This is needed in case Resources Syncing needs to be enabled

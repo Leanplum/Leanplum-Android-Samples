@@ -21,8 +21,10 @@ import com.leanplum.annotations.Parser;
 import com.leanplum.annotations.Variable;
 import com.leanplum.callbacks.VariablesChangedCallback;
 
-public class MainActivity extends LeanplumActivity {
+import java.util.HashMap;
+import java.util.Map;
 
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
