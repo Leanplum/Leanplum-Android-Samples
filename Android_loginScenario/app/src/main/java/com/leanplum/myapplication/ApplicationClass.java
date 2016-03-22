@@ -22,7 +22,6 @@ public class ApplicationClass extends Application {
     public void onCreate() {
         Leanplum.setApplicationContext(this);
         Parser.parseVariables(this);
-        Parser.parseVariablesForClasses(LoginWindow.class);
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
         super.onCreate();
 
@@ -31,8 +30,6 @@ public class ApplicationClass extends Application {
         } else {
             Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
         }
-
-        Leanplum.setDeviceId("LeanplumDevice_" + System.currentTimeMillis());
 
         LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
