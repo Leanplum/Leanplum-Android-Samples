@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/fede/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-81e5eb099e5b14e44475e066934571ef068ddb40.jar" />
+    </item>
+    <item
+        jar="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/pre-dexed/debug/classes-eba078fc8ae76566031b1b67d9dd195794578781.jar" />
+    </item>
+    <item
+        jar="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-60e7f1b237a3a11b269b4dd1ca7635f55a2bf20d.jar" />
+    </item>
+    <item
+        jar="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/pre-dexed/debug/classes-570492f434cce9c2dc8981834b93e71bc9fc2f12.jar" />
+    </item>
+    <item
+        jar="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/pre-dexed/debug/classes-4b54d49fb832c738ff5a4daf21386298dd777e88.jar" />
+    </item>
+    <item
+        jar="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/pre-dexed/debug/classes-2a0b38ec4e6bbe8bf64c4792947b0cab5a876472.jar" />
+    </item>
+    <item
+        jar="/Users/fede/.gradle/caches/modules-2/files-2.1/com.leanplum/Leanplum/1.2.18/d7c0f075d88385462f47c0b60c89a5cf37deb959/Leanplum-1.2.18.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d7c0f075d88385462f47c0b60c89a5cf37deb959">
+        <dex dex="/Users/fede/fromGit/LeanplumSamples/Leanplum-Android-Samples/AndroidSessionLifecycle/app/build/intermediates/pre-dexed/debug/Leanplum-1.2.18-60af1d3140a7cf7f0b558b761a9880b4dc83ecd9.jar" />
+    </item>
+
+</items>
