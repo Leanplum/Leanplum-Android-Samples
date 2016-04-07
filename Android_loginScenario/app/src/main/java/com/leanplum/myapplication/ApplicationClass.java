@@ -18,11 +18,15 @@ import java.util.Map;
 
 public class ApplicationClass extends Application {
 
+
     @Override
     public void onCreate() {
+
         Leanplum.setApplicationContext(this);
         Parser.parseVariables(this);
+        Parser.parseVariablesForClasses(LoginWindow.class);
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
+
         super.onCreate();
 
         if (BuildConfig.DEBUG) {

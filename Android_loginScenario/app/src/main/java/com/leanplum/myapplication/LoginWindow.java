@@ -22,7 +22,6 @@ public class LoginWindow extends Activity{
 
     Map<String, Object> loginAttribute = new HashMap<String, Object>();
 
-
     @Override
     public void onBackPressed(){
         Log.i("####" , "Back button disabled - click on Logout to return to Login");
