@@ -24,18 +24,13 @@ import com.leanplum.callbacks.VariablesChangedCallback;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class MainActivity extends LeanplumActivity {
+public class MainActivity extends Activity {
 
-    @Variable
-    public static String MainActivityVariable2 = "VariableTest!";
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Leanplum.start(this);
 
 }
 

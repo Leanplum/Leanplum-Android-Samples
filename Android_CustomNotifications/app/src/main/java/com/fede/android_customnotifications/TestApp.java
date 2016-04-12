@@ -35,7 +35,7 @@ public class TestApp extends LeanplumApplication {
 
 
         // Insert here your App Leanplum keys
-        // FedeApp13
+
         if (BuildConfig.DEBUG) {
             Leanplum.setAppIdForDevelopmentMode("APP_KEY", "DEV_KEY");
         } else {
