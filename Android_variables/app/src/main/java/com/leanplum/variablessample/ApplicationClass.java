@@ -47,7 +47,7 @@ public class ApplicationClass extends Application{
 
         super.onCreate();
 
-        if (!BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Leanplum.setAppIdForDevelopmentMode("APP_KEY", "DEV_KEY");
         } else {
             Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
