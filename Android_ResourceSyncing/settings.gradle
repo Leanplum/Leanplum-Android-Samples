@@ -1,6 +1,1 @@
 include ':app'
-//include ':Dependency'
-include 'AndroidSDK'
-project(':AndroidSDK').projectDir = new File('/Users/fede/fromGit/Leanplum/Android/AndroidSDK')
-
-//include (':AndroidSDK').projectDir = new File(settingsDir, '/Users/fede/fromGit/Leanplum/Android/AndroidSDK')å

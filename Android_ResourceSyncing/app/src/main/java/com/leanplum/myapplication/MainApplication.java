@@ -32,7 +32,8 @@ public class MainApplication extends Application {
         Parser.parseVariables(this);
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
-        if (!BuildConfig.DEBUG) {
+
+        if (BuildConfig.DEBUG) {
             Leanplum.setAppIdForDevelopmentMode("", "");
         } else {
             Leanplum.setAppIdForProductionMode("", "");
