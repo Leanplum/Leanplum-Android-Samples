@@ -2,16 +2,24 @@ package com.leanplum.sample;
 
 import android.app.Application;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
 import com.leanplum.LeanplumPushService;
 import com.leanplum.annotations.Parser;
+import com.leanplum.annotations.Variable;
+import com.leanplum.callbacks.StartCallback;
+import com.leanplum.callbacks.VariablesChangedCallback;
 
 /**
  * Created by fede on 4/12/16.
  */
 public class ApplicationClass extends Application {
+
+    @Variable
+    public static String welcomeString = "welcome message!";
+
 
     @Override
     public void onCreate() {
@@ -22,9 +30,9 @@ public class ApplicationClass extends Application {
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("APP_KEY", "DEV_KEY");
+            Leanplum.setAppIdForDevelopmentMode("app_9T4PfjDDYOOkDVzNfC5ZDbvm1FQZL9gt3l8WsDDxgdo", "dev_C1MESUTRPIyIvTzogD3LaUOJws1JqAH6V4v70aQ2P70");
         } else {
-            Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
+            Leanplum.setAppIdForProductionMode("app_9T4PfjDDYOOkDVzNfC5ZDbvm1FQZL9gt3l8WsDDxgdo", "prod_hSO9Q5BRhBBync2bj3WCx7wfFj4noEHhOcvNLfBCnc0");
         }
 
         // Registering for Push with Leanplum
@@ -41,8 +49,20 @@ public class ApplicationClass extends Application {
         // If using multiple Push services with different SenderIDs, they need to be all passed also to Leanplum, using the following, for example:
         // LeanplumPushService.setGcmSenderIds(LeanplumPushService.LEANPLUM_SENDER_ID, "123456789012", "some other SenderID in string format...");
 
+        Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
+            @Override
+            public void variablesChanged() {
+                Log.i("### ", "Welcome message is: " + welcomeString);
+            }
+        });
 
-        Leanplum.start(this);
+        Leanplum.start(this, new StartCallback() {
+            @Override
+            public void onResponse(boolean b) {
+                Log.i("### ", "Leanplum is started - Variants are: " + Leanplum.variants());
+
+            }
+        });
 
     }
 }

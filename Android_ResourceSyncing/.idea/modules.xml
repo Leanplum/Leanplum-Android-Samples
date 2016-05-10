@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/fromGit/Leanplum/Android/AndroidSDK/AndroidSDK.iml" filepath="$USER_HOME$/fromGit/Leanplum/Android/AndroidSDK/AndroidSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android_ResourceSyncing.iml" filepath="$PROJECT_DIR$/Android_ResourceSyncing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
