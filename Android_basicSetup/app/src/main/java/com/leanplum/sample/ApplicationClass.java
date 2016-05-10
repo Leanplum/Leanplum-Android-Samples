@@ -30,9 +30,9 @@ public class ApplicationClass extends Application {
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("app_9T4PfjDDYOOkDVzNfC5ZDbvm1FQZL9gt3l8WsDDxgdo", "dev_C1MESUTRPIyIvTzogD3LaUOJws1JqAH6V4v70aQ2P70");
+            Leanplum.setAppIdForDevelopmentMode("", "");
         } else {
-            Leanplum.setAppIdForProductionMode("app_9T4PfjDDYOOkDVzNfC5ZDbvm1FQZL9gt3l8WsDDxgdo", "prod_hSO9Q5BRhBBync2bj3WCx7wfFj4noEHhOcvNLfBCnc0");
+            Leanplum.setAppIdForProductionMode("", "");
         }
 
         // Registering for Push with Leanplum
