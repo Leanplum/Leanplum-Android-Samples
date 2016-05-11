@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
+import com.leanplum.LeanplumApplication;
 import com.leanplum.LeanplumPushService;
 import com.leanplum.Var;
 import com.leanplum.annotations.Parser;
@@ -19,11 +20,13 @@ import java.util.Objects;
 /**
  * Created by fede on 4/15/16.
  */
-public class ApplicationClass extends Application{
+public class ApplicationClass extends Application {
 
     // variables can be defined
     @Variable
     public static String String_applicationClass = "welcome!";
+
+
 
     @Variable public static Map<String, Object> powerup = new HashMap<String, Object>() {
         {
@@ -35,11 +38,10 @@ public class ApplicationClass extends Application{
         }
     };
 
-    static Var<String> mario = Var.defineAsset("Mario", "Mario.png");
-
-
     @Override
     public void onCreate() {
+
+        super.onCreate();
 
         Leanplum.setApplicationContext(this);
 
@@ -48,13 +50,15 @@ public class ApplicationClass extends Application{
 
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
-        super.onCreate();
+
 
         if (BuildConfig.DEBUG) {
             Leanplum.setAppIdForDevelopmentMode("APP_KEY", "DEV_KEY");
         } else {
             Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
         }
+
+
 
         Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
             @Override
@@ -66,8 +70,12 @@ public class ApplicationClass extends Application{
                     Object value = entry.getValue();
                     Log.i("#### ", "Application class var : " + key + " " + value.toString());
                 }
+
+
             }
         });
+
+
 
         Leanplum.start(this);
     }

@@ -20,6 +20,8 @@ public class AnotherActivity extends Activity {
     @Variable
     public static String String_AnotherActivity = "String var in AnotherActivity";
 
+    static Var<String> mario2 = Var.defineAsset("Mario2", "Mario.png");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,7 @@ public class AnotherActivity extends Activity {
             public void variablesChanged() {
                 Log.i("#### ", "String_AnotherActivity: " + String_AnotherActivity);
 
-                im.setImageBitmap(BitmapFactory.decodeStream(ApplicationClass.mario.stream()));
+                im.setImageBitmap(BitmapFactory.decodeStream(mario2.stream()));
             }
         });
     }

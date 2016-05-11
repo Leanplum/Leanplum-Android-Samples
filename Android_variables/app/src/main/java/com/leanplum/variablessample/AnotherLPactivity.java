@@ -22,11 +22,15 @@ public class AnotherLPactivity extends LeanplumActivity {
     @Variable
     public static String String_LPactivity = "String var in LPactivity";
 
+    static Var<String> mario1 = Var.defineAsset("Mario1", "Mario.png");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lp);
+
+//        final String String_test = getString(R.string.string_name);
 
 
         final ImageView im = new ImageView(this);
@@ -38,7 +42,11 @@ public class AnotherLPactivity extends LeanplumActivity {
             public void variablesChanged() {
                 Log.i("#### ", "String_LPactivity: " + String_LPactivity);
 
-                im.setImageBitmap(BitmapFactory.decodeStream(ApplicationClass.mario.stream()));
+//                im.setImageBitmap(BitmapFactory.decodeStream(ApplicationClass.mario.stream()));
+
+                im.setImageBitmap(BitmapFactory.decodeStream(mario1.stream()));
+
+//                Log.i("#### ", String_test);
 
             }
         });

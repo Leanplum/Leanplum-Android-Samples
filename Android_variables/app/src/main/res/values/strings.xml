@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">variablesSample</string>
+    <string name="string_name">test</string>
 </resources>
