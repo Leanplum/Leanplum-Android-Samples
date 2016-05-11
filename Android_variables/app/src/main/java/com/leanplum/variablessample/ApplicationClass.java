@@ -6,6 +6,7 @@ import android.util.Log;
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
 import com.leanplum.LeanplumPushService;
+import com.leanplum.Var;
 import com.leanplum.annotations.Parser;
 import com.leanplum.annotations.Variable;
 import com.leanplum.callbacks.VariablesChangedCallback;
@@ -33,6 +34,8 @@ public class ApplicationClass extends Application{
             put("slots", Arrays.asList(1, 2, 3));
         }
     };
+
+    static Var<String> mario = Var.defineAsset("Mario", "Mario.png");
 
 
     @Override
