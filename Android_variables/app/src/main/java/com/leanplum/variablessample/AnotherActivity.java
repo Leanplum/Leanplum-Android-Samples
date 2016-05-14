@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.leanplum.Leanplum;
+import com.leanplum.LeanplumActivityHelper;
 import com.leanplum.Var;
+import com.leanplum.annotations.Parser;
 import com.leanplum.annotations.Variable;
 import com.leanplum.callbacks.VariablesChangedCallback;
 
@@ -18,13 +20,14 @@ import com.leanplum.callbacks.VariablesChangedCallback;
 public class AnotherActivity extends Activity {
 
     @Variable
-    public static String String_AnotherActivity = "String var in AnotherActivity";
+    public static String String_noLPactivity = "String Variable defined in AnotherActivity";
 
     static Var<String> mario2 = Var.defineAsset("Mario2", "Mario.png");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_another);
 
         final ImageView im = new ImageView(this);
@@ -34,12 +37,10 @@ public class AnotherActivity extends Activity {
         Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
             @Override
             public void variablesChanged() {
-                Log.i("#### ", "String_AnotherActivity: " + String_AnotherActivity);
 
+                Log.i("#### ", String_noLPactivity);
                 im.setImageBitmap(BitmapFactory.decodeStream(mario2.stream()));
             }
         });
     }
-
-
 }

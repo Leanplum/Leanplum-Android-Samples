@@ -3,11 +3,15 @@ package com.leanplum.variablessample;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.leanplum.Leanplum;
+import com.leanplum.Var;
 import com.leanplum.activities.LeanplumActivity;
 import com.leanplum.annotations.Variable;
+import com.leanplum.callbacks.VariablesChangedCallback;
 
 public class MainActivity extends LeanplumActivity {
 
@@ -25,6 +29,17 @@ public class MainActivity extends LeanplumActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final TextView welcomeMessageText1 = (TextView) findViewById(R.id.textView4);
+        final TextView welcomeMessageText2 = (TextView) findViewById(R.id.textView5);
+
+        Leanplum.addVariablesChangedAndNoDownloadsPendingHandler(new VariablesChangedCallback() {
+            @Override
+            public void variablesChanged() {
+                welcomeMessageText1.setText(ApplicationClass.String_Welcome1);
+                welcomeMessageText2.setText(ApplicationClass.String_Welcome2);
+            }
+        });
 
     }
 }

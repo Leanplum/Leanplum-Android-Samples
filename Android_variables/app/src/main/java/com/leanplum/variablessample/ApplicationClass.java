@@ -6,6 +6,7 @@ import android.util.Log;
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
 import com.leanplum.LeanplumApplication;
+import com.leanplum.LeanplumDeviceIdMode;
 import com.leanplum.LeanplumPushService;
 import com.leanplum.Var;
 import com.leanplum.annotations.Parser;
@@ -24,9 +25,10 @@ public class ApplicationClass extends Application {
 
     // variables can be defined
     @Variable
-    public static String String_applicationClass = "welcome!";
+    public static String String_Welcome1 = "Welcome to Leanplum!";
 
-
+    @Variable
+    public static String String_Welcome2 = "You can change those text strings overriding 'String_Welcome1' and 'String_Welcome2' values on the Dashboard variables";
 
     @Variable public static Map<String, Object> powerup = new HashMap<String, Object>() {
         {
@@ -37,6 +39,7 @@ public class ApplicationClass extends Application {
             put("slots", Arrays.asList(1, 2, 3));
         }
     };
+
 
     @Override
     public void onCreate() {
@@ -51,31 +54,30 @@ public class ApplicationClass extends Application {
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
 
-
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("APP_KEY", "DEV_KEY");
+            Leanplum.setAppIdForDevelopmentMode("", "");
         } else {
-            Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
+            Leanplum.setAppIdForProductionMode("", "");
         }
 
+//        Leanplum.setApiConnectionSettings("leanplum-staging.appspot.com", "api", true);
+//        Leanplum.setSocketConnectionSettings("dev-staging.leanplum.com", 80);
+//        Leanplum.enableVerboseLoggingInDevelopmentMode();
 
 
         Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
             @Override
             public void variablesChanged() {
-                Log.i("#### " , "Application class " + String_applicationClass);
 
                 for (Map.Entry<String, Object> entry : powerup.entrySet()) {
                     String key = entry.getKey();
                     Object value = entry.getValue();
                     Log.i("#### ", "Application class var : " + key + " " + value.toString());
                 }
-
-
             }
         });
 
-
+        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
         Leanplum.start(this);
     }

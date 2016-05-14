@@ -12,6 +12,15 @@
     <!-- Optional. Prevents the device from sleeping when a message is received. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <!-- Optional. Prevents the device from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.leanplum.variablessample.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.leanplum.variablessample.permission.C2D_MESSAGE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,6 +39,53 @@
 
         <activity android:name=".AnotherActivity"/>
         <activity android:name=".AnotherLPactivity"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- For push notifications only -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.leanplum.variablessample" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.leanplum.LeanplumPushReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.leanplum.LeanplumPushListenerService" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.leanplum.LeanplumPushListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.leanplum.LeanplumLocalPushListenerService" />
+
+        <service android:name="com.leanplum.LeanplumPushRegistrationService" />
+
+        <service
+            android:name="com.leanplum.LeanplumPushInstanceIDService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <!-- For geofencing only -->
+        <service android:name="com.leanplum.ReceiveTransitionsIntentService" />
 
     </application>
 

@@ -11,8 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Another Activity"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="Current Activity does not extend LeanplumActivity.\nHowever, Variables can still be parsed from the Application class before Leanplum is started.\nCallbacks are triggered when the current activity is created.\n\nImage below can be switched from the Dashboard too."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_margin="10dp" />
 
     <!--<ImageView-->
     <!--android:layout_width="wrap_content"-->
