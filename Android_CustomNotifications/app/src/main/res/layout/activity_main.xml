@@ -4,18 +4,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText android:id="@+id/edit_message"
+    <TextView android:id="@+id/edit_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_message"
-        android:layout_alignBottom="@+id/button"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_send"
-        android:onClick="sendMessage"
-        android:id="@+id/button" />
+        android:layout_centerHorizontal="true"
+        android:text="LEANPLUM\nCustomizing Push Notifications\n\nSee the TestApp.java application class in the code.\nAfter filling in your App_Keys and registering with Leanplum, send a Push Notification from the Dashboard.\nSee how the message Icon, Large Icon and Big Image get customized once the Notification is received."/>
 
 </RelativeLayout>
