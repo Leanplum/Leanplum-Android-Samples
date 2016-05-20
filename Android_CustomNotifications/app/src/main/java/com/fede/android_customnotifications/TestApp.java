@@ -42,6 +42,9 @@ public class TestApp extends LeanplumApplication {
             Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
         }
 
+        // The customizer is set in the Application Class
+        // In this case, I'm modifying the Notification Small Icon, Large Icon and attaching an image beneath as well
+        
         LeanplumPushService.setCustomizer(new LeanplumPushNotificationCustomizer() {
                     //
                     @Override

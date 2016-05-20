@@ -1,3 +1,1 @@
 include ':app'
-include ':AndroidSDK'
-project(':AndroidSDK').projectDir = new File('/Users/fede/fromGit/Leanplum/Android/AndroidSDK')
