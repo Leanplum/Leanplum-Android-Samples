@@ -10,14 +10,14 @@ import com.leanplum.LeanplumPushListenerService;
  */
 public class CustomPushListenerService extends LeanplumPushListenerService {
 
-    public void onMessageReceived(String var, Bundle data) {
-        super.onMessageReceived(var, data);
+    public void onMessageReceived(String var, Bundle notificationPayload) {
+        super.onMessageReceived(var, notificationPayload);
 
         // This code is executed when the Notification is received.
 
         // With the following the Advanced Data can be retrieved from the Push Notification
         // Be sure the Variable name match - in this sample I'm assuming to set a String variable in the Advanced Data on Dashboard
-        String dataString = data.getString("String_name");
+        String dataString = notificationPayload.getString("String_name");
         // Printing to console the String value
         Log.i("#### ", dataString);
 
