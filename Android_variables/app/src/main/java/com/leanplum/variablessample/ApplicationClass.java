@@ -23,14 +23,16 @@ import java.util.Objects;
  */
 public class ApplicationClass extends Application {
 
-    // variables can be defined
+    // Defining Variables using Annotations
+
+    // String_Welcome1 and String_Welcome2 are going to be displayed on Screen - see MainActivity class
     @Variable
     public static String String_Welcome1 = "Welcome to Leanplum!";
-
     @Variable
     public static String String_Welcome2 = "You can change those text strings overriding 'String_Welcome1' and 'String_Welcome2' values on the Dashboard variables";
 
-    @Variable public static Map<String, Object> powerup = new HashMap<String, Object>() {
+    @Variable
+    public static Map<String, Object> powerup = new HashMap<String, Object>() {
         {
             put("name", "Turbo Boost");
             put("price", 150);
@@ -43,32 +45,30 @@ public class ApplicationClass extends Application {
 
     @Override
     public void onCreate() {
-
         super.onCreate();
 
         Leanplum.setApplicationContext(this);
-
         Parser.parseVariables(this);
         Parser.parseVariablesForClasses(AnotherActivity.class, AnotherLPactivity.class);
-
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
+        Leanplum.enableVerboseLoggingInDevelopmentMode();
 
+        // Example of a Variable defined inside the onCreate method
+        final Var<String> welcomeLabel = Var.define("welcomeLabel", "Welcome!");
 
+        // Registering Leanplum - Fill in your APP_ID and KEYs
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("", "");
+            Leanplum.setAppIdForDevelopmentMode("APP_ID", "DEV_KEY");
         } else {
-            Leanplum.setAppIdForProductionMode("", "");
+            Leanplum.setAppIdForProductionMode("APP_ID`", "PROD_KEY");
         }
-
-//        Leanplum.setApiConnectionSettings("leanplum-staging.appspot.com", "api", true);
-//        Leanplum.setSocketConnectionSettings("dev-staging.leanplum.com", 80);
-//        Leanplum.enableVerboseLoggingInDevelopmentMode();
-
 
         Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
             @Override
             public void variablesChanged() {
 
+                // Printing to console the values of some Variables
+                Log.i("#### ", welcomeLabel.value());
                 for (Map.Entry<String, Object> entry : powerup.entrySet()) {
                     String key = entry.getKey();
                     Object value = entry.getValue();
@@ -76,8 +76,6 @@ public class ApplicationClass extends Application {
                 }
             }
         });
-
-        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
         Leanplum.start(this);
     }

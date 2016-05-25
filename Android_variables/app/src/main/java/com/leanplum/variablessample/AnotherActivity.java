@@ -34,10 +34,9 @@ public class AnotherActivity extends Activity {
         LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
         layout.addView(im);
 
-        Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
+        Leanplum.addVariablesChangedAndNoDownloadsPendingHandler(new VariablesChangedCallback() {
             @Override
             public void variablesChanged() {
-
                 Log.i("#### ", String_noLPactivity);
                 im.setImageBitmap(BitmapFactory.decodeStream(mario2.stream()));
             }

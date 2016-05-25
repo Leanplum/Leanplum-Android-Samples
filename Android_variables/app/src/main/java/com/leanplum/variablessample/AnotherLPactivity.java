@@ -32,7 +32,6 @@ public class AnotherLPactivity extends LeanplumActivity {
             @Override
             public void variablesChanged() {
                 Log.i("#### ", String_LPactivity);
-
                 im.setImageBitmap(BitmapFactory.decodeStream(mario1.stream()));
 
             }
