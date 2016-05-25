@@ -37,30 +37,32 @@ public class TestApp extends LeanplumApplication {
         // Insert here your App Leanplum keys
 
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("APP_KEY", "DEV_KEY");
+            Leanplum.setAppIdForDevelopmentMode("", "");
         } else {
-            Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
+            Leanplum.setAppIdForProductionMode("", "");
         }
 
         // The customizer is set in the Application Class
         // In this case, I'm modifying the Notification Small Icon, Large Icon and attaching an image beneath as well
-        
+
         LeanplumPushService.setCustomizer(new LeanplumPushNotificationCustomizer() {
                     //
                     @Override
                     public void customize(NotificationCompat.Builder builder, Bundle notificationPayload) {
 
+                        // Setting a custom smallIcon included in the Drawable folder
                         builder.setSmallIcon(R.drawable.atest);
 
+                        // Setting a custom largeIcon included in the Drawable folder
                         Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.androidorange);
                         builder.setLargeIcon(largeIcon);
 
+                        // Setting a custom Big Picture included in the Drawable folder, beneath the notification
                         Bitmap androidBanner = BitmapFactory.decodeResource(getResources(), R.drawable.androidappsdev);
                         builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(androidBanner));
 
                     }
                 });
-
 
         LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
