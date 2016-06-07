@@ -1,7 +1,5 @@
 package com.leanplum.android_userattributes_events;
 
-import android.app.Application;
-import android.util.Log;
 
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumApplication;
@@ -17,9 +15,9 @@ public class ApplicationClass extends LeanplumApplication {
         super.onCreate();
 
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("", "");
+            Leanplum.setAppIdForDevelopmentMode("app_pD1WCiarpwpqdnahT6MhGC1KF6L9MAiSn65JQeXQ2C4", "dev_EZtGjDA2BrnXgSqrUDqbfGUQAMsRepWt5BtHVe6cvFo");
         } else {
-            Leanplum.setAppIdForProductionMode("", "");
+            Leanplum.setAppIdForProductionMode("app_pD1WCiarpwpqdnahT6MhGC1KF6L9MAiSn65JQeXQ2C4", "prod_3ftu3GJo6IOQhm0ZFtT1BBWjhCiTqwazWdhnszWGgts");
         }
 
         Leanplum.enableVerboseLoggingInDevelopmentMode();
