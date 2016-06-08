@@ -18,7 +18,6 @@ import java.util.Map;
 
 public class ApplicationClass extends Application {
 
-
     @Override
     public void onCreate() {
 
@@ -30,10 +29,11 @@ public class ApplicationClass extends Application {
         super.onCreate();
 
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("APP_KEY", "DEV_KEY");
+            Leanplum.setAppIdForDevelopmentMode("", "");
         } else {
-            Leanplum.setAppIdForProductionMode("APP_KEY", "PROD_KEY");
+            Leanplum.setAppIdForProductionMode("", "");
         }
+
 
         LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 

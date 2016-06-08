@@ -33,6 +33,8 @@ public class LoginWindow extends Activity{
         setContentView(R.layout.activity_loginwindow);
 
         loginAttribute.put("isLoggedIn:", true);
+        Leanplum.setUserAttributes(loginAttribute);
+
         EditText medit = MainActivity.getmEdit();
         Log.i("####", "User is now logged in with User: " + medit.getText().toString());
 

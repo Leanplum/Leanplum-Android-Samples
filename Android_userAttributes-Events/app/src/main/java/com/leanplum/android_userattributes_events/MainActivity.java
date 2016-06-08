@@ -31,14 +31,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("### Leanplum: ", "Set User Attributes \"gender\", \"Male\" and \"age\", 36");
     }
 
-//    // Cleaning UserAttributes values setting them to null - in this case those User Attributes will no longer be visible in the UserProfile
-//    public static void cleanUserAttrib(View view){
-//        attributes.put("gender", null);
-//        attributes.put("age", null);
-//        attributes.clear();
-//        Leanplum.setUserAttributes(attributes);
-//        Log.i("### Leanplum: ", "Clearing User Attributes");
-//    }
 
     // Tracking an event called "Test_Event" passing a parameter
     public static void trackEvent(View view){
