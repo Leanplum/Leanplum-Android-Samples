@@ -15,14 +15,14 @@ public class ApplicationClass extends LeanplumApplication {
         super.onCreate();
 
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("app_pD1WCiarpwpqdnahT6MhGC1KF6L9MAiSn65JQeXQ2C4", "dev_EZtGjDA2BrnXgSqrUDqbfGUQAMsRepWt5BtHVe6cvFo");
+            Leanplum.setAppIdForDevelopmentMode("", "");
         } else {
-            Leanplum.setAppIdForProductionMode("app_pD1WCiarpwpqdnahT6MhGC1KF6L9MAiSn65JQeXQ2C4", "prod_3ftu3GJo6IOQhm0ZFtT1BBWjhCiTqwazWdhnszWGgts");
+            Leanplum.setAppIdForProductionMode("", "");
         }
 
         Leanplum.enableVerboseLoggingInDevelopmentMode();
 
-        Leanplum.setDeviceId("DeviceID_2000");
+
 
         LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
