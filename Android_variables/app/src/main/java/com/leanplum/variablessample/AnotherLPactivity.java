@@ -24,16 +24,13 @@ public class AnotherLPactivity extends LeanplumActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lp);
 
-        final ImageView im = new ImageView(this);
-        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
-        layout.addView(im);
+        final ImageView imageView = (ImageView) findViewById(R.id.welcome_logo_large);
 
         Leanplum.addVariablesChangedAndNoDownloadsPendingHandler(new VariablesChangedCallback() {
             @Override
             public void variablesChanged() {
                 Log.i("#### ", String_LPactivity);
-                im.setImageBitmap(BitmapFactory.decodeStream(mario1.stream()));
-
+                imageView.setImageBitmap(BitmapFactory.decodeStream(mario1.stream()));
             }
         });
     }

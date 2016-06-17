@@ -58,9 +58,9 @@ public class ApplicationClass extends Application {
 
         // Registering Leanplum - Fill in your APP_ID and KEYs
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("APP_ID", "DEV_KEY");
+            Leanplum.setAppIdForDevelopmentMode("", "");
         } else {
-            Leanplum.setAppIdForProductionMode("APP_ID`", "PROD_KEY");
+            Leanplum.setAppIdForProductionMode("", "");
         }
 
         Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {

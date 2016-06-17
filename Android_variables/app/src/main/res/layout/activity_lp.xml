@@ -14,4 +14,13 @@
         android:text="Current Activity extends LeanplumActivity.\nVariables are parsed in the Application class before Leanplum is started.\nCallbacks are triggered when the current activity is created.\n\nImage below can be switched from the Dashboard too."
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_margin="10dp" />
+
+    <ImageView
+        android:id="@+id/welcome_logo_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"/>
+
+
 </LinearLayout>

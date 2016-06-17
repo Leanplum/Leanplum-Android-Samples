@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
+import com.leanplum.LeanplumPushService;
 import com.leanplum.Var;
 import com.leanplum.annotations.Parser;
 import com.leanplum.annotations.Variable;
@@ -41,5 +42,6 @@ public class AnotherActivity extends Activity {
                 im.setImageBitmap(BitmapFactory.decodeStream(mario2.stream()));
             }
         });
+
     }
 }
