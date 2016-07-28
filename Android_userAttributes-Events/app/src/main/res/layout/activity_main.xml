@@ -51,10 +51,19 @@
         android:layout_height="wrap_content"
         android:text="Track Event"
         android:id="@+id/button2"
-        android:layout_below="@+id/button3"
+        android:onClick="trackEvent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:text="Track Purchase Event"
+        android:layout_below="@+id/button2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="80dp"
-        android:onClick="trackEvent"/>
+        android:onClick="trackPurchaseEvent"/>
 
 </RelativeLayout>

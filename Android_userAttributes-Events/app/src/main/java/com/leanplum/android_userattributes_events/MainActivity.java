@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     static Map<String, Object> attributes = new HashMap<String, Object>();
     static Map<String, Object> params = new HashMap<String, Object>();
+    static Map<String, Object> purchaseParams = new HashMap<String, Object>();
 
     // Setting some User Attributes to the current User
     public static void setUserAttrib_1(View view){
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         params.put("Test_Param", 12345);
         Leanplum.track("Test_Event", params);
         Log.i("### Leanplum: ", "\"Test_Event\" event tracked with parameters \"12345\"");
+    }
+
+    public static void trackPurchaseEvent(View view){
+        purchaseParams.put("Test_Purchase_Param", 9876);
+        Leanplum.track(Leanplum.PURCHASE_EVENT_NAME, 19.99, "test purchase", purchaseParams);
     }
 
     @Override
