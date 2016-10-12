@@ -8,10 +8,13 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.leanplum.Leanplum;
+import com.leanplum.LeanplumActivityHelper;
 import com.leanplum.LeanplumPushNotificationCustomizer;
 import com.leanplum.LeanplumPushService;
 import com.leanplum.annotations.Parser;
+import com.leanplum.annotations.Variable;
 import com.leanplum.callbacks.StartCallback;
+import com.leanplum.callbacks.VariablesChangedCallback;
 import com.mparticle.MParticle;
 
 /**
@@ -20,9 +23,16 @@ import com.mparticle.MParticle;
 
 public class ApplicationClass extends Application {
 
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        // Parsing for Variable to be registered in Leanplum Dashboard
+        // This has to be done BEFORE starting Leanplum
+        // Variables are defined in this case into LPvariables class
+        Parser.parseVariables(this);
+        Parser.parseVariablesForClasses(LPvariables.class);
 
         LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
@@ -41,18 +51,22 @@ public class ApplicationClass extends Application {
                 // Setting a custom Big Picture included in the Drawable folder, beneath the notification
                 Bitmap androidBanner = BitmapFactory.decodeResource(getResources(), R.drawable.androidappsdev);
                 builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(androidBanner));
-
             }
         });
 
-        // Parsing for Variable to be registered in Leanplum Dashboard
-        // This has to be done BEFORE starting Leanplum
-        // Variables are defined in this case into LPvariables class
-        Parser.parseVariablesForClasses(LPvariables.class);
+
+        Leanplum.addStartResponseHandler(new StartCallback() {
+            @Override
+            public void onResponse(boolean b) {
+                Log.i("### ", "Leanplum started -- application class");
+            }
+        });
 
         // Starting MParticle - this will also start Leanplum
-        MParticle.start(this);
+//        MParticle.start(this, MParticle.InstallType.AutoDetect, MParticle.Environment.Production);
 
+//        MParticle.start(this, MParticle.InstallType.AutoDetect, MParticle.Environment.Production);
+        MParticle.start(this);
 
     }
 }
