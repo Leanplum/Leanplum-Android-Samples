@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <permission android:name="com.leanplum.android_mparticle.permission.C2D_MESSAGE" android:protectionLevel="signature" />
     <uses-permission android:name="com.leanplum.android_mparticle.permission.C2D_MESSAGE" />
 
@@ -15,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".ApplicationClass">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <receiver android:name="com.mparticle.ReferrerReceiver" android:exported="true">
             <intent-filter>
