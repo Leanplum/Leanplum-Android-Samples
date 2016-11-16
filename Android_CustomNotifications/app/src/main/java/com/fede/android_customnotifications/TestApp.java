@@ -23,7 +23,7 @@ import java.util.Arrays;
 /**
  * Created by fede on 9/30/15.
  */
-public class TestApp extends LeanplumApplication {
+public class TestApp extends Application {
 
     @Override
     public void onCreate(){
@@ -36,10 +36,11 @@ public class TestApp extends LeanplumApplication {
 
         // Insert here your App Leanplum keys
 
+
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("", "");
+            Leanplum.setAppIdForDevelopmentMode("<APP_KEY>", "<DEV_KEY>");
         } else {
-            Leanplum.setAppIdForProductionMode("", "");
+            Leanplum.setAppIdForProductionMode("<APP_KEY>", "<PROD_KEY>");
         }
 
         // The customizer is set in the Application Class
