@@ -26,13 +26,17 @@ public class ApplicationClass extends Application {
         super.onCreate();
 
         Leanplum.setApplicationContext(this);
-        Parser.parseVariables(this);
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
+
+        Parser.parseVariables(this);
+        Parser.parseVariablesForClasses(GlobalVariables.class, MainActivity.class);
+
+
         if (BuildConfig.DEBUG) {
-            Leanplum.setAppIdForDevelopmentMode("", "");
+            Leanplum.setAppIdForDevelopmentMode("APP_ID", "DEV_KEY");
         } else {
-            Leanplum.setAppIdForProductionMode("", "");
+            Leanplum.setAppIdForProductionMode("APP_ID", "PROD_KEY");
         }
 
         // Registering for Push with Leanplum

@@ -9,8 +9,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <!-- Optional. Prevents the device from sleeping when a message is received. -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <permission android:name="com.leanplum.sample.permission.C2D_MESSAGE"
