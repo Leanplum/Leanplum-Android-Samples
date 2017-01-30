@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Android_AppInbox</string>
+    <string name="label_no_news">No News Available</string>
+
+    <string name="unread_count"><![CDATA[<unread count>]]></string>
+    <string name="unread_newsfeed">Unread Inbox: </string>
+</resources>
