@@ -7,3 +7,4 @@
 /build
 /captures
 .externalNativeBuild
+app/src/main/java/com/leanplum/android_appinbox/Credentials.java

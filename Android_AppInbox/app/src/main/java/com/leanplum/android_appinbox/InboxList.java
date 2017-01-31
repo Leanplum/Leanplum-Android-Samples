@@ -29,7 +29,6 @@ public class InboxList extends Activity {
     private static final String TEXT2 = "text2";
     public List<String> messagesIds = Leanplum.newsfeed().messagesIds();
 
-    private static boolean unread = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +52,17 @@ public class InboxList extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Leanplum.track("Newsfeed Item Clicked!");
+
                 // chekcing if the message is unread
                 if (!Leanplum.newsfeed().messageForId(messagesIds.get(i)).isRead()) {
                     Log.i("Leanplum", "Reading getMessageId: " + messagesIds.get(i));
                     Leanplum.newsfeed().messageForId(messagesIds.get(i)).read();
+
+
                 } else {
                     // Looks like we cannot mark it as unread once is read
                     Log.i("Leanplum", messagesIds.get(i) + " is already read!");
                 }
-
             }
         });
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -95,11 +96,15 @@ public class InboxList extends Activity {
         messagesIds = Leanplum.newsfeed().messagesIds();
         for (String messageId : messagesIds) {
             Map<String, String> listItemMap = new HashMap<>();
-            listItemMap.put(TEXT1, Leanplum.newsfeed().messageForId(messageId).getTitle());
+
+            if (!Leanplum.newsfeed().messageForId(messageId).isRead()) {
+                listItemMap.put(TEXT1, "N - " + Leanplum.newsfeed().messageForId(messageId).getTitle());
+            } else {
+                listItemMap.put(TEXT1, Leanplum.newsfeed().messageForId(messageId).getTitle());
+            }
             listItemMap.put(TEXT2, Leanplum.newsfeed().messageForId(messageId).getSubtitle());
             listItem.add(Collections.unmodifiableMap(listItemMap));
         }
         return Collections.unmodifiableList(listItem);
     }
-
 }

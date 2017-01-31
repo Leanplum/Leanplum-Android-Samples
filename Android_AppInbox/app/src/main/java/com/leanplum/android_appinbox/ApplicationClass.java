@@ -14,10 +14,6 @@ import com.leanplum.annotations.Parser;
 
 public class ApplicationClass extends Application {
 
-    private static String AppID = "APP_ID";
-    private static String DevKey = "DEV_KEY";
-    private static String ProdKey = "PROD_KEY";
-
     @Override
     public void onCreate(){
         super.onCreate();
@@ -25,12 +21,9 @@ public class ApplicationClass extends Application {
         Leanplum.setApplicationContext(this);
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
-
-        Parser.parseVariables(this);
-
-        String appId = AppID;
-        String devKey = DevKey;
-        String prodKey = ProdKey;
+        String appId = Credentials.AppID;
+        String devKey = Credentials.DevKey;
+        String prodKey = Credentials.ProdKey;
 
         if (BuildConfig.DEBUG) {
             Leanplum.setAppIdForDevelopmentMode(appId, devKey);
@@ -38,7 +31,7 @@ public class ApplicationClass extends Application {
             Leanplum.setAppIdForProductionMode(appId, prodKey);
         }
 
-        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
+        LeanplumPushService.setGcmSenderId(Credentials.GCMsenderID);
 
         Leanplum.trackAllAppScreens();
 
