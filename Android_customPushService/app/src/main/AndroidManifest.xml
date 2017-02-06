@@ -14,9 +14,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-    <permission android:name="com.leanplum.android_custompushservice.permission.C2D_MESSAGE"
+    <permission android:name="${applicationId}.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-    <uses-permission android:name="com.leanplum.android_custompushservice.permission.C2D_MESSAGE" />
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
@@ -34,7 +34,10 @@
             </intent-filter>
         </activity>
 
-        <!--leanplum stuff-->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
@@ -42,7 +45,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.leanplum.android_custompushservice" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
 
@@ -76,6 +79,7 @@
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
+
 
     </application>
 

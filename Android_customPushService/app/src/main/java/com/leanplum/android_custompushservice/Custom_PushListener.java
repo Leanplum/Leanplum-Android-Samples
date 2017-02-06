@@ -11,11 +11,11 @@ import com.leanplum.LeanplumPushListenerService;
 
 public class Custom_PushListener extends LeanplumPushListenerService {
 
-    @Override
+//    @Override
     public void onMessageReceived(String var, Bundle notificationPayload) {
         super.onMessageReceived(var, notificationPayload);
 
-        Log.i("### ", "1 received");
+        Log.i("### ", "Received");
 
     }
 }

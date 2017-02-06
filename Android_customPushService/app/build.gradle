@@ -26,5 +26,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     testCompile 'junit:junit:4.12'
     compile 'com.leanplum:Leanplum:+'
-    compile('com.google.android.gms:play-services:9.0.0+')
+    compile('com.google.android.gms:play-services-gcm:+')
+    compile('com.google.android.gms:play-services-location:+')
 }
