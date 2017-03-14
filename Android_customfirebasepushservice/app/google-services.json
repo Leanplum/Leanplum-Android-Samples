@@ -1,0 +1,116 @@
+{
+  "project_info": {
+    "project_number": "709867216442",
+    "firebase_url": "https://testfede2.firebaseio.com",
+    "project_id": "testfede2",
+    "storage_bucket": "testfede2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709867216442:android:9d871b30a07f8958",
+        "android_client_info": {
+          "package_name": "com.fede.fedeTest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709867216442-mnaqim6nredu43ttqvpi3h3foq1s6gja.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "709867216442-tm35l0h3k9c2l9uga32ha9ql5m26pc30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6UtXnjz_MBiV1qHpdkXQjl9dvHvi1oU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709867216442:android:66e06327498a61d6",
+        "android_client_info": {
+          "package_name": "com.android_playground"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709867216442-mnaqim6nredu43ttqvpi3h3foq1s6gja.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "709867216442-tm35l0h3k9c2l9uga32ha9ql5m26pc30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6UtXnjz_MBiV1qHpdkXQjl9dvHvi1oU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709867216442:android:96dd5f93888531a0",
+        "android_client_info": {
+          "package_name": "com.leanplum.android_customfirebasepushservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709867216442-mnaqim6nredu43ttqvpi3h3foq1s6gja.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "709867216442-tm35l0h3k9c2l9uga32ha9ql5m26pc30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6UtXnjz_MBiV1qHpdkXQjl9dvHvi1oU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
