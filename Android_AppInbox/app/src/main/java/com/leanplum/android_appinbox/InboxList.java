@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.leanplum.Leanplum;
-import com.leanplum.callbacks.NewsfeedChangedCallback;
+import com.leanplum.LeanplumInbox;
+import com.leanplum.callbacks.InboxChangedCallback;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,21 +27,14 @@ public class InboxList extends Activity {
 
     private static final String TEXT1 = "text1";
     private static final String TEXT2 = "text2";
-    public List<String> messagesIds = Leanplum.newsfeed().messagesIds();
+    public LeanplumInbox inbox = Leanplum.getInbox();
+    public List<String> messagesIds = inbox.messagesIds();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inboxlist);
-
-        final Button button = (Button) findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         final ListView listView = (ListView) findViewById(R.id.listView);
         ListAdapter listAdapter = createListAdapter();
@@ -51,13 +44,12 @@ public class InboxList extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Leanplum.track("Newsfeed Item Clicked!");
+                Leanplum.track("App Inbox Item Clicked!");
 
-                // chekcing if the message is unread
-                if (!Leanplum.newsfeed().messageForId(messagesIds.get(i)).isRead()) {
+                // checking if the message is unread
+                if (!inbox.messageForId(messagesIds.get(i)).isRead()) {
                     Log.i("Leanplum", "Reading getMessageId: " + messagesIds.get(i));
-                    Leanplum.newsfeed().messageForId(messagesIds.get(i)).read();
-
+                    inbox.messageForId(messagesIds.get(i)).read();
 
                 } else {
                     // Looks like we cannot mark it as unread once is read
@@ -68,16 +60,16 @@ public class InboxList extends Activity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Leanplum.track("Newsfeed Long Press!");
+                Leanplum.track("App Inbox Long Press!");
                 Log.i("Leanplum", "Deleting getMessageId: " + messagesIds.get(i));
-                Leanplum.newsfeed().messageForId(messagesIds.get(i)).remove();
+                inbox.messageForId(messagesIds.get(i)).remove();
                 return false;
             }
         });
 
-        Leanplum.newsfeed().addNewsfeedChangedHandler(new NewsfeedChangedCallback() {
+        inbox.addChangedHandler(new InboxChangedCallback() {
             @Override
-            public void newsfeedChanged() {
+            public void inboxChanged() {
                 ListAdapter updatedListAdapter = createListAdapter();
                 listView.setAdapter(updatedListAdapter);
             }
@@ -87,22 +79,22 @@ public class InboxList extends Activity {
     private ListAdapter createListAdapter() {
         String[] fromMapKey = new String[] {TEXT1, TEXT2};
         int[] toLayoutId = new int[] {android.R.id.text1, android.R.id.text2};
-        List<Map<String, String>> list = newsfeedToListItems();
+        List<Map<String, String>> list = inboxToListItems();
         return new SimpleAdapter(this, list, android.R.layout.simple_list_item_2, fromMapKey, toLayoutId);
     }
 
-    private List<Map<String, String>> newsfeedToListItems() {
-        List<Map<String, String>> listItem = new ArrayList<>(Leanplum.newsfeed().count());
-        messagesIds = Leanplum.newsfeed().messagesIds();
+    private List<Map<String, String>> inboxToListItems() {
+        List<Map<String, String>> listItem = new ArrayList<>(inbox.count());
+        messagesIds = inbox.messagesIds();
         for (String messageId : messagesIds) {
             Map<String, String> listItemMap = new HashMap<>();
 
-            if (!Leanplum.newsfeed().messageForId(messageId).isRead()) {
-                listItemMap.put(TEXT1, "N - " + Leanplum.newsfeed().messageForId(messageId).getTitle());
+            if (!inbox.messageForId(messageId).isRead()) {
+                listItemMap.put(TEXT1, "N - " + inbox.messageForId(messageId).getTitle());
             } else {
-                listItemMap.put(TEXT1, Leanplum.newsfeed().messageForId(messageId).getTitle());
+                listItemMap.put(TEXT1, inbox.messageForId(messageId).getTitle());
             }
-            listItemMap.put(TEXT2, Leanplum.newsfeed().messageForId(messageId).getSubtitle());
+            listItemMap.put(TEXT2, inbox.messageForId(messageId).getSubtitle());
             listItem.add(Collections.unmodifiableMap(listItemMap));
         }
         return Collections.unmodifiableList(listItem);
