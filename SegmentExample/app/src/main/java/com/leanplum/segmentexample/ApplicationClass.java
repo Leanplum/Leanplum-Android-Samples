@@ -1,9 +1,13 @@
 package com.leanplum.segmentexample;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.leanplum.Leanplum;
+import com.leanplum.LeanplumActivityHelper;
 import com.leanplum.LeanplumPushService;
+import com.leanplum.callbacks.StartCallback;
+import com.leanplum.callbacks.VariablesChangedCallback;
 import com.leanplum.segment.LeanplumIntegration;
 import com.segment.analytics.Analytics;
 
@@ -19,18 +23,44 @@ public class ApplicationClass extends Application {
     public void onCreate(){
         super.onCreate();
 
-        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
+        Leanplum.setApplicationContext(this);
+        LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
-        Analytics analytics = new Analytics.Builder(getApplicationContext(), SEGMENT_WRITE_KEY)
-                .use(LeanplumIntegration.FACTORY).build();
+        // Enabling GCM
+//        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
-        analytics.onIntegrationReady("Leanplum",
+        // Enabling Firebase
+        LeanplumPushService.enableFirebase();
+
+
+        Analytics analytics = new Analytics
+                .Builder(this, SEGMENT_WRITE_KEY)
+                .use(LeanplumIntegration.FACTORY)
+                .build();
+//
+
+        analytics.onIntegrationReady(LeanplumIntegration.LEANPLUM_SEGMENT_KEY,
                 new Analytics.Callback() {
                     @Override
                     public void onReady(Object instance) {
-                        Leanplum.track("test");
+                        Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
+                            @Override
+                            public void variablesChanged() {
+                                Log.i("### ", "Leanplum started");
+                                Leanplum.setUserId("FedePluto_1");
+                            }
+                        });
                     }
                 });
 
+        Leanplum.addStartResponseHandler(new StartCallback() {
+            @Override
+            public void onResponse(boolean b) {
+                Log.i("### ", "Leanplum started 2");
+            }
+        });
+
+// Set the initialized instance as a globally accessible instance.
+        Analytics.setSingletonInstance(analytics);
     }
 }
