@@ -33,7 +33,7 @@ public class ApplicationClass extends Application {
 
 
         Analytics analytics = new Analytics
-                .Builder(this, "WV0IGPMEneSe74l0lRoLaOAaGj7S4pbM")
+                .Builder(this, "YOURKEY")
                 .use(LeanplumIntegration.FACTORY)
                 .build();
 //
