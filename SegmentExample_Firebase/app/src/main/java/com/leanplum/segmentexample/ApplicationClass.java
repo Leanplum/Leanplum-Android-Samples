@@ -6,6 +6,7 @@ import android.util.Log;
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
 import com.leanplum.LeanplumPushService;
+import com.leanplum.callbacks.StartCallback;
 import com.leanplum.callbacks.VariablesChangedCallback;
 import com.leanplum.segment.LeanplumIntegration;
 import com.segment.analytics.Analytics;
@@ -26,10 +27,10 @@ public class ApplicationClass extends Application {
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
         // Enabling GCM
-        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
+//        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
         // Enabling Firebase
-//        LeanplumPushService.enableFirebase();
+        LeanplumPushService.enableFirebase();
 
 
         Analytics analytics = new Analytics
@@ -39,7 +40,7 @@ public class ApplicationClass extends Application {
 //
 
         analytics.onIntegrationReady(LeanplumIntegration.LEANPLUM_SEGMENT_KEY,
-                    new Analytics.Callback() {
+                new Analytics.Callback() {
                     @Override
                     public void onReady(Object instance) {
                         Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
