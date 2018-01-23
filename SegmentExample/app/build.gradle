@@ -34,7 +34,7 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
 //    compile 'com.leanplum.segment:LeanplumIntegration:+'
 //    compile 'com.segment.analytics.android:analytics:4.+'
-//    compile 'com.google.android.gms:play-services-gcm:+'
+    compile 'com.google.android.gms:play-services-gcm:11.6.0'
     compile 'com.google.android.gms:play-services-location:11.6.0'
 
     compile 'com.segment.analytics.android:analytics:4.0.4'
@@ -43,8 +43,8 @@ dependencies {
 
     // Option 2: Firebase Cloud Messaging
     // Minimum supported version is 10.0.1+.
-    compile 'com.google.firebase:firebase-messaging:11.6.0'
+//    compile 'com.google.firebase:firebase-messaging:11.6.0'
     // Only needed if you plan to use Location.
 }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

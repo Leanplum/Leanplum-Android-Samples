@@ -27,10 +27,10 @@ public class ApplicationClass extends Application {
         LeanplumActivityHelper.enableLifecycleCallbacks(this);
 
         // Enabling GCM
-//        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
+        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
 
         // Enabling Firebase
-        LeanplumPushService.enableFirebase();
+//        LeanplumPushService.enableFirebase();
 
 
         Analytics analytics = new Analytics
