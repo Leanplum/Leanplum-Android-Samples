@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.android_playground"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:26.1.0'
+
+    // use the following for using Leanplum with Firebase support
+//    compile 'com.leanplum:leanplum-fcm:4.0.0'
+//    compile 'com.google.firebase:firebase-messaging:11.8.0'
+    // end of Firebase
+
+    // Use the following if you want neither Firebase or GCM Push support
+    // In case you are going to eventually use leanplum-fcm or leanplum-gcm modules, is recommended to remove leanplum-core as it would be already automatically pulled in
+    compile 'com.leanplum:leanplum-core:4.0.0'
+    //
+
+    // Using location services
+    compile 'com.leanplum:leanplum-location:4.0.0'
+    compile 'com.google.android.gms:play-services-location:11.8.0'
+    // end of location services setup
+
+
+    testCompile 'junit:junit:4.12'
+//    compile 'com.leanplum:UIEditor:4.+'
+}
+
+// Include the following for FCM.
+// 'google-services' file needs to be downloaded from your Google Firebase console and added to the project
+//apply plugin: 'com.google.gms.google-services'
+//
+
+// <-- End Leanplum Dependencies -->
+
+// Set all support libraries to use version 25.4.0. Not using same versions can result in runtime errors.
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '26.1.0'
+            }
+        }
+    }
+}
