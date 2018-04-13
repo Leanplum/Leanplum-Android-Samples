@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="com_appboy_api_key">45bfe560-ffe2-4f68-91c4-8aaa0393f761</string>
-    <bool name="com_appboy_push_gcm_messaging_registration_enabled">true</bool>
-    <!-- Replace with your Google API project number -->
-    <string name="com_appboy_push_gcm_sender_id">709867216442</string>
-</resources>
