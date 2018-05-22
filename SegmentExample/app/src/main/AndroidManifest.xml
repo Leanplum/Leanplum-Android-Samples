@@ -42,6 +42,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".LoggedInActivity"/>
+
         <!-- For push notifications only -->
         <!--<receiver-->
             <!--android:name="com.google.android.gms.gcm.GcmReceiver"-->

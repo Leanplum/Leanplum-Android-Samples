@@ -20,7 +20,6 @@ public class Custom_FirebaseMessagingService extends LeanplumPushFirebaseMessagi
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
-
         boolean isLeanPlumPushNotification = (remoteMessage.getData().containsKey("lp_version"));
 
         if (isLeanPlumPushNotification) {

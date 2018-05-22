@@ -10,6 +10,9 @@ import com.leanplum.callbacks.StartCallback;
 import com.leanplum.callbacks.VariablesChangedCallback;
 import com.leanplum.segment.LeanplumIntegration;
 import com.segment.analytics.Analytics;
+import com.segment.analytics.Traits;
+
+import java.util.HashMap;
 
 /**
  * Created by fede on 1/18/17.
@@ -33,8 +36,8 @@ public class ApplicationClass extends Application {
         LeanplumPushService.enableFirebase();
 
 
-        Analytics analytics = new Analytics
-                .Builder(this, "YOURKEY")
+        final Analytics analytics = new Analytics
+                .Builder(this, "WV0IGPMEneSe74l0lRoLaOAaGj7S4pbM")
                 .use(LeanplumIntegration.FACTORY)
                 .build();
 //
@@ -47,12 +50,16 @@ public class ApplicationClass extends Application {
                             @Override
                             public void variablesChanged() {
                                 Log.i("### ", "Leanplum started");
-                                Log.i("### ", "Logging in with User 'FedeTest'");
-                                Leanplum.setUserId("FedeTest");
+                                Log.i("### ", "For testing, I'm logging in with User 'FedeTest2'");
+//                                Leanplum.setUserId("FedeTest2");
+
+                                analytics.identify("FedeTest10");
                             }
                         });
                     }
                 });
+
+
 
 
 // Set the initialized instance as a globally accessible instance.

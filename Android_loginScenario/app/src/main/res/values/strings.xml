@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Leanplum - Login sample</string>
-    <string name="hintText">Enter your Username</string>
-    <string name="loginButton">Login</string>
-    <string name="logoutButton">Logout</string>
-    <string name="loggedin">You are logged in! Check the console log for more information and the Leanplum Dashboard to see the new User Profile</string>
-    <string name="intro">Type a Username and click on Login. The UserID used will correspond to the User Profile name in Leanplum dashboard</string>
-</resources>

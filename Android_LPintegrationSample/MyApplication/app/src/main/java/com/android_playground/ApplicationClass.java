@@ -1,8 +1,10 @@
 package com.android_playground;
 import android.app.Application;
 import android.util.Log;
+
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
+import com.leanplum.LeanplumDeviceIdMode;
 import com.leanplum.annotations.Parser;
 import com.leanplum.callbacks.StartCallback;
 
@@ -35,7 +37,7 @@ public class ApplicationClass extends Application {
 
         // Optional
         // On Android, default is the Android_ID. In case the Advertising_ID is needed, use the following
-        // Leanplum.setDeviceIdMode(LeanplumDeviceIdMode.ADVERTISING_ID);
+         Leanplum.setDeviceIdMode(LeanplumDeviceIdMode.ADVERTISING_ID);
         //
         if (BuildConfig.DEBUG) {
             Leanplum.enableVerboseLoggingInDevelopmentMode();

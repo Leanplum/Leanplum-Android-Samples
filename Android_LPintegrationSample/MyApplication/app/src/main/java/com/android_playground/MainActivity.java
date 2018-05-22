@@ -62,12 +62,12 @@ public class MainActivity extends AppCompatActivity {
 
         Leanplum.setUserAttributes(attributes);
 
+        // Optional
+        // This is how to setup Device Location manually using Leanplum
 //        Location dummyLocation = new Location("");
 //        dummyLocation.setLatitude(32.777930);
 //        dummyLocation.setLongitude(-96.789344);
 //        Leanplum.setDeviceLocation(dummyLocation);
-
-
     }
 
 
@@ -119,6 +119,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-//
 }

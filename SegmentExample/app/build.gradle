@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.leanplum.segmentexample"
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
@@ -34,17 +34,27 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
 //    compile 'com.leanplum.segment:LeanplumIntegration:+'
 //    compile 'com.segment.analytics.android:analytics:4.+'
-    compile 'com.google.android.gms:play-services-gcm:11.6.0'
-    compile 'com.google.android.gms:play-services-location:11.6.0'
+//    compile 'com.google.android.gms:play-services-gcm:11.8+'
+    compile 'com.google.android.gms:play-services-location:11.8+'
 
-    compile 'com.segment.analytics.android:analytics:4.0.4'
-    compile 'com.leanplum.segment:LeanplumIntegration:1.1.0'
-//    compile 'com.google.android.gms:play-services:+'
+//    compile 'com.leanplum:leanplum-gcm:+'
+
+//    compile 'com.leanplum:Leanplum:4.+'
+    compile 'com.leanplum:UIEditor:4.+'
+
+    compile 'com.segment.analytics.android:analytics:4+'
+
+    compile('com.leanplum.segment:LeanplumIntegration:+') {
+        exclude group: 'com.segment.analytics.android', module: 'analytics'
+        exclude group: 'com.leanplum', module: 'Leanplum'
+    }
+    compile 'com.leanplum:leanplum-fcm:4.0.0'
+    compile 'com.leanplum:leanplum-location:4.0.0'
 
     // Option 2: Firebase Cloud Messaging
     // Minimum supported version is 10.0.1+.
-//    compile 'com.google.firebase:firebase-messaging:11.6.0'
+    compile 'com.google.firebase:firebase-messaging:11.8+'
     // Only needed if you plan to use Location.
 }
 
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
